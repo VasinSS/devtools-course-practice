@@ -2,6 +2,7 @@
 
 #include "../include/minesweeper.h"
 #include <math.h>
+#include <stdlib.h>
 
 minesweeper::minesweeper(char ix_size, char iy_size, char imine_count)
 {
@@ -70,15 +71,15 @@ char minesweeper::get_area_mine_count(char ix, char iy)
   char area_mine = 0;
   for(int i=0; i<mine_count; i++)
   {
-    if(abs(x_mine_pos-ix)<=1)
+    if(abs((int)(x_mine_pos[i])-(int)ix)<=1)
     {
-      if(abs(y_mine_pos-iy)<=1)
+      if(abs((int)(y_mine_pos[i])-(int)iy)<=1)
       {
 	area_mine++;
       }
     }
-    return area_mine;
   }
+  return area_mine;
 };
 
 char minesweeper::clic_on_cell(char ix, char iy)

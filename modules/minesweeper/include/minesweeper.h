@@ -22,4 +22,4 @@ public:
  char get_y_size();
 };
 
-#endif _MINESWEEPER_H
+#endif
