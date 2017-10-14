@@ -45,7 +45,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_4) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_1) {
     // Arrange
-    minesweeper m(10,10,7);
+    minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_x_size();
@@ -55,7 +55,7 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_1) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_2) {
     // Arrange
-    minesweeper m(10,10,7);
+    minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_y_size();
@@ -65,7 +65,7 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_2) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_3) {
     // Arrange
-    minesweeper m(10,10,7);
+    minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_mine_count();
@@ -75,13 +75,13 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_3) {
 
 TEST(VS_S_MinesweeperTest, copy_constructor_test) {
     // Arrange
-    minesweeper m1(10,10,7);
+    minesweeper m1(10, 10, 7);
     minesweeper m2(m1);
     // Act
     // Assert
-    EXPECT_TRUE( (m1.get_x_size() == m2.get_x_size() )
-              && (m1.get_x_size() == m2.get_x_size() )
-	      && (m1.get_x_size() == m2.get_x_size() ) );
+    EXPECT_TRUE((m1.get_x_size() == m2.get_x_size())
+              && (m1.get_x_size() == m2.get_x_size())
+              && (m1.get_x_size() == m2.get_x_size()));
 }
 
 TEST(VS_S_MinesweeperTest, get_x_size_test) {
