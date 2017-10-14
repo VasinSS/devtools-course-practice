@@ -22,4 +22,4 @@ public:
  char get_y_size();
 };
 
-#endif
+#endif // MODULES_MINESWEEPER_INCLUDE_MINESWEEPER_H_"
