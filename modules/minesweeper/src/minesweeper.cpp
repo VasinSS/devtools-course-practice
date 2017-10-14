@@ -1,7 +1,7 @@
 // Copyright 2017 Vasin Stanislav
 
 #include "../include/minesweeper.h"
-#include <math.h>
+#include "math.h"
 
 minesweeper::minesweeper(char ix_size, char iy_size, char imine_count) {
   x_size = ix_size;
@@ -13,11 +13,11 @@ minesweeper::minesweeper(char ix_size, char iy_size, char imine_count) {
   y_mine_pos = new char[mine_count];
 
   for (int i = 0; i < mine_count; i++) {
-    x_mine_pos[i] = i % x_size;
+    x_mine_pos[i] = i;
   }
 
   for (int i = 0; i < mine_count; i++) {
-    y_mine_pos[i] = i % y_size;
+    y_mine_pos[i] = i;
   }
 }
 
@@ -46,10 +46,10 @@ minesweeper::minesweeper() {
   y_mine_pos = new char[mine_count];
 
   for (int i = 0; i < mine_count; i++) {
-    x_mine_pos[i] = i % x_size;
+    x_mine_pos[i] = i;
   }
-  for (int i=0; i < mine_count; i++) {
-    y_mine_pos[i] = i % y_size;
+  for (int i=  0; i < mine_count; i++) {
+    y_mine_pos[i] = i;
   }
 }
 
@@ -59,7 +59,7 @@ minesweeper::~minesweeper() {
 }
 
 char minesweeper::cell_is_mine(char ix, char iy) {
-  char search_result = -1;
+  char search_result = 0;
   for (int i = 0; i < mine_count; i++) {
     if ( (ix == x_mine_pos[i]) && (iy == y_mine_pos[i]) ) {
       search_result = 9;
@@ -72,9 +72,9 @@ char minesweeper::cell_is_mine(char ix, char iy) {
 char minesweeper::get_area_mine_count(char ix, char iy) {
   char area_mine = 0;
   for (int i = 0; i < mine_count; i++) {
-    if (fabs(static_cast<int>(x_mine_pos[i]) - static_cast<int>(ix) <= 1)) {
-      if (fabs(static_cast<int>(y_mine_pos[i]) - static_cast<int>(iy) <= 1)) {
-        area_mine++;
+    if (fabs(static_cast<int>(x_mine_pos[i] - static_cast<int>(ix))) <= 1) {
+      if (fabs(static_cast<int>(y_mine_pos[i] - static_cast<int>(iy))) <= 1) {
+        area_mine = area_mine + 1;
       }
     }
   }
@@ -96,3 +96,8 @@ char minesweeper::get_x_size() {
 char minesweeper::get_y_size() {
   return y_size;
 }
+
+char minesweeper::get_mine_count() {
+  return mine_count;
+}
+

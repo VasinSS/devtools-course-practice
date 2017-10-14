@@ -20,6 +20,7 @@ class minesweeper {
   char clic_on_cell(char ix, char iy);
   char get_x_size();
   char get_y_size();
+  char get_mine_count();
 };
 
 #endif  // MODULES_MINESWEEPER_INCLUDE_MINESWEEPER_H_"
