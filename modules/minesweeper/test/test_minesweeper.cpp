@@ -43,6 +43,36 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_4) {
     EXPECT_EQ(result, 0);
 }
 
+TEST(VS_S_MinesweeperTest, clic_on_cell_test_5) {
+    // Arrange
+    minesweeper m;
+    char result;
+    // Act
+    result = m.clic_on_cell(3, 0);
+    // Assert
+    EXPECT_EQ(result, 0);
+}
+
+TEST(VS_S_MinesweeperTest, clic_on_cell_test_6) {
+    // Arrange
+    minesweeper m;
+    char result;
+    // Act
+    result = m.clic_on_cell(2, 0);
+    // Assert
+    EXPECT_EQ(result, 1);
+}
+
+TEST(VS_S_MinesweeperTest, clic_on_cell_test_7) {
+    // Arrange
+    minesweeper m;
+    char result;
+    // Act
+    result = m.clic_on_cell(1, 0);
+    // Assert
+    EXPECT_EQ(result, 2);
+}
+
 TEST(VS_S_MinesweeperTest, init_constructor_test_1) {
     // Arrange
     minesweeper m(10, 10, 7);
