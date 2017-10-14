@@ -22,7 +22,7 @@ minesweeper::minesweeper(char ix_size, char iy_size, char imine_count) {
   }
 };
 
-minesweeper::minesweeper(minesweeper m) {
+minesweeper::minesweeper(const minesweeper &m) {
   if(m != null) {
    x_size = m.x_size;
    y_size = m.y_size;

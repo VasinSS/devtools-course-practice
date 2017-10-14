@@ -15,11 +15,11 @@ class minesweeper {
  public:
   minesweeper();
   minesweeper(char ix_size, char iy_size, char imine_count);
-  minesweeper(minesweeper m);
+  minesweeper(const minesweeper &m);
   ~minesweeper();
   char clic_on_cell(char ix, char iy);
   char get_x_size();
   char get_y_size();
 };
 
-#endif  //MODULES_MINESWEEPER_INCLUDE_MINESWEEPER_H_"
+#endif  // MODULES_MINESWEEPER_INCLUDE_MINESWEEPER_H_"
