@@ -1,0 +1,76 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_salary_per_hour_test
+    COMMAND ${APPLICATION} 1 10
+)
+set_tests_properties (${prefix}_Can_set_salary_per_hour_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "1"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_work_hours_test
+    COMMAND ${APPLICATION} 2 10
+)
+set_tests_properties (${prefix}_Can_set_work_hours_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_overtime_bonus_test
+    COMMAND ${APPLICATION} 3 10
+)
+set_tests_properties (${prefix}_Can_set_overtime_bonus_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "3"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_admin_rest_test
+    COMMAND ${APPLICATION} 4 10
+)
+set_tests_properties (${prefix}_Can_set_admin_rest_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "4"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_needed_hours_test
+    COMMAND ${APPLICATION} 5 10
+)
+set_tests_properties (${prefix}_Can_set_needed_hours_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "5"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_set_hours_in_workday_test
+    COMMAND ${APPLICATION} 6 10
+)
+set_tests_properties (${prefix}_Can_set_hours_in_workday_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "6"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_calculate_default_salary
+    COMMAND ${APPLICATION} 7 0
+)
+set_tests_properties (${prefix}_Can_calculate_default_salary PROPERTIES
+    PASS_REGULAR_EXPRESSION "3200"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Imitation_real_work_test
+    COMMAND ${APPLICATION} 1 50 2 30 3 60 4 0 5 20 6 8 7 0
+)
+set_tests_properties (${prefix}_Imitation_real_work_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "1600"
+    LABELS "${MODULE}")

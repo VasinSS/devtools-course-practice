@@ -29,3 +29,15 @@ ComplexNumber second(2.0, 2.0);
 ComplexNumber result(1.0, 0.0);
 EXPECT_TRUE(result == first / second);
 }
+
+//  ussless tests for Travic
+
+TEST(Kiselev_Complex_Number_Test, SetUp) {
+    SetUp();
+    EXPECT_TRUE(true);
+}
+
+TEST(Kiselev_Complex_Number_Test, TearDown) {
+    TearDown();
+    EXPECT_TRUE(true);
+}

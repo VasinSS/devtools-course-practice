@@ -1,0 +1,92 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is a HEX, OCT, BIN number calculator application"
+LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 101 10 BIN 
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 4 arguments."
+LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} 1 2 BIN +
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Numbers don't match the type!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Operation_Format
+    COMMAND ${APPLICATION} 1 1 BIN %
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Type_Format
+    COMMAND ${APPLICATION} 3 5 4 +
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Type_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong type!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Add
+    COMMAND ${APPLICATION} 12 ab HEX +
+)
+set_tests_properties (${prefix}_can_Add PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = bd"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Diff
+    COMMAND ${APPLICATION} 14 5 OCT -
+)
+set_tests_properties (${prefix}_can_Diff PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 7"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Mult
+    COMMAND ${APPLICATION} 110 11 BIN *
+)
+set_tests_properties (${prefix}_can_Mult PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 10010"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Divide
+    COMMAND ${APPLICATION} 10010 11 BIN /
+)
+set_tests_properties (${prefix}_can_Divide PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 110"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Divide_By_Zero
+    COMMAND ${APPLICATION} 23 0 OCT /
+)
+set_tests_properties (${prefix}_can_Detect_Divide_By_Zero PROPERTIES
+    PASS_REGULAR_EXPRESSION "Can't divide by zero!"
+LABELS "${MODULE}")
