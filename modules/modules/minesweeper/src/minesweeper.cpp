@@ -72,8 +72,8 @@ char minesweeper::cell_is_mine(char ix, char iy) {
 char minesweeper::get_area_mine_count(char ix, char iy) {
   char area_mine = 0;
   for (int i = 0; i < mine_count; i++) {
-    if (abs(static_cast<int>(x_mine_pos[i]) - static_cast<int>ix) <= 1) {
-      if (abs(static_cast<int>(y_mine_pos[i]) - static_cast<int>iy) <= 1) {
+    if (fabs(static_cast<int>(x_mine_pos[i]) - static_cast<int>(ix) <= 1)) {
+      if (fabs(static_cast<int>(y_mine_pos[i]) - static_cast<int>(iy) <= 1)) {
         area_mine++;
       }
     }
