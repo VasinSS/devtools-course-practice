@@ -9,11 +9,11 @@
 
 #include "../include/minesweeper.h"
 
-minesweeperApp::MinesweeperApp() : message_("") {}
+MinesweeperApp::MinesweeperApp() : message_("") {}
 
-minesweeperApp::~MinesweeperApp() {}
+MinesweeperApp::~MinesweeperApp() {}
 
-void minesweeperApp::help(const char* appname, const char* message) {
+void MinesweeperApp::help(const char* appname, const char* message) {
   message_ = std::string(message) +
             "This is a method of minesweeper application.\n\n" +
             "Please provide arguments in the following format:\n\n"+
@@ -29,7 +29,7 @@ void minesweeperApp::help(const char* appname, const char* message) {
             "\n";
 }
 
-bool minesweeperApp::validateNumberofArguments(int argc, const char** argv) {
+bool MinesweeperApp::validateNumberofArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -51,7 +51,7 @@ char parseChar(const char* arg) {
   return value;
 }
 
-std::string minesweeperApp::operator()(int argc, const char** argv) {
+std::string MinesweeperApp::operator()(int argc, const char** argv) {
   Arguments args;
   if (!validateNumberofArguments(argc, argv)) {
     return message_;
@@ -67,7 +67,7 @@ std::string minesweeperApp::operator()(int argc, const char** argv) {
     return str;
   }
 
-  minesweeper m(args.x_size_, args.y_size_, args.mine_count_);
+  Minesweeper m(args.x_size_, args.y_size_, args.mine_count_);
   char result = m.clic_on_cell(args.x_clic_, args.y_clic_);
   std::ostringstream stream;
   stream << static_cast<int>(result);

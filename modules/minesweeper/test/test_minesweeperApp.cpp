@@ -34,7 +34,7 @@ class MinesweeperAppTest : public ::testing::Test {
     }
 
  private:
-    minesweeperApp app_;
+    MinesweeperApp app_;
     string output_;
 };
 

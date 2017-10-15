@@ -8,7 +8,7 @@ int absi(int i) {
   return i;
 }
 
-minesweeper::Minesweeper(char ix_size, char iy_size, char imine_count) {
+Minesweeper::Minesweeper(char ix_size, char iy_size, char imine_count) {
   x_size_ = ix_size;
   y_size_ = iy_size;
   mine_count_ = imine_count;
@@ -26,7 +26,7 @@ minesweeper::Minesweeper(char ix_size, char iy_size, char imine_count) {
   }
 }
 
-minesweeper::minesweeper(const minesweeper &m) {
+Minesweeper::Minesweeper(const Minesweeper &m) {
   x_size_ = m.x_size_;
   y_size_ = m.y_size_;
   mine_count_ = m.mine_count_;
@@ -35,13 +35,13 @@ minesweeper::minesweeper(const minesweeper &m) {
   x_mine_pos_ = new char[mine_count_];
   y_mine_pos_ = new char[mine_count_];
 
-  for (int i = 0; i < mine_count; i++) {
+  for (int i = 0; i < mine_count_; i++) {
     x_mine_pos_[i] = m.x_mine_pos_[i];
     y_mine_pos_[i] = m.y_mine_pos_[i];
   }
 }
 
-minesweeper::minesweeper() {
+Minesweeper::Minesweeper() {
   x_size_ = 10;
   y_size_ = 10;
   mine_count_ = 5;
@@ -58,12 +58,12 @@ minesweeper::minesweeper() {
   }
 }
 
-minesweeper::~minesweeper() {
+Minesweeper::~Minesweeper() {
   delete[] x_mine_pos_;
   delete[] y_mine_pos_;
 }
 
-char minesweeper::cell_is_mine(char ix, char iy) {
+char Minesweeper::cell_is_mine(char ix, char iy) {
   char search_result = 0;
   for (int i = 0; i < mine_count_; i++) {
     if ( (ix == x_mine_pos_[i]) && (iy == y_mine_pos_[i]) ) {
@@ -74,7 +74,7 @@ char minesweeper::cell_is_mine(char ix, char iy) {
   return search_result;
 }
 
-char minesweeper::get_area_mine_count(char ix, char iy) {
+char Minesweeper::get_area_mine_count(char ix, char iy) {
   char area_mine = 0;
   for (int i = 0; i < mine_count_; i++) {
     if (absi(static_cast<int>(x_mine_pos_[i]
@@ -88,7 +88,7 @@ char minesweeper::get_area_mine_count(char ix, char iy) {
   return area_mine;
 }
 
-char minesweeper::clic_on_cell(char ix, char iy) {
+char Minesweeper::clic_on_cell(char ix, char iy) {
   char result_on_clic = cell_is_mine(ix, iy);
   if (result_on_clic != 9) {
     result_on_clic = get_area_mine_count(ix, iy);
@@ -96,15 +96,15 @@ char minesweeper::clic_on_cell(char ix, char iy) {
   return result_on_clic;
 }
 
-char minesweeper::get_x_size() {
+char Minesweeper::get_x_size() {
   return x_size_;
 }
 
-char minesweeper::get_y_size() {
+char Minesweeper::get_y_size() {
   return y_size_;
 }
 
-char minesweeper::get_mine_count() {
+char Minesweeper::get_mine_count() {
   return mine_count_;
 }
 
