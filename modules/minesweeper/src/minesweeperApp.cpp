@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include <sstream>
 #include <string>
 
 #include "../include/minesweeper.h"
@@ -19,7 +20,11 @@ void minesweeperApp::help(const char* appname, const char* message) {
 
             " $ " + appname +" <x_size> <y_size> <mine_count>\n\n"+
 
-            "Where <x_size> <y_size> <mine_count> char-precision number, " +
+            " <x_clic> <y_clic> "+
+
+            "Where <x_size> <y_size> <mine_count> <x_clic> <y_clic>"+
+
+            "char-precision number, "+
 
             "\n";
 }
@@ -28,8 +33,8 @@ bool minesweeperApp::validateNumberofArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 4) {
-        help(argv[0], "Error: Should be 3 arguments.\n\n");
+    } else if (argc != 6) {
+        help(argv[0], "Error: Should be 5 arguments.\n\n");
         return false;
     }
     return true;
@@ -55,14 +60,17 @@ std::string minesweeperApp::operator()(int argc, const char** argv) {
     args.x_size  = parseChar(argv[1]);
     args.y_size = parseChar(argv[2]);
     args.mine_count = parseChar(argv[3]);
+    args.x_clic = parseChar(argv[4]);
+    args.y_clic = parseChar(argv[5]);
   }
   catch(std::string& str) {
     return str;
   }
 
   minesweeper m(args.x_size, args.y_size, args.mine_count);
-  m.get_x_size();
-  message_ = "ssssssss";
-
+  char result = m.clic_on_cell(args.x_clic, args.y_clic);
+  std::ostringstream stream;
+  stream << static_cast<int>(result);
+  message_ = "result: " + stream.str() + "\n";
   return message_;
 }

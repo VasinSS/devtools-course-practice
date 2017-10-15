@@ -45,3 +45,11 @@ TEST_F(minesweeperAppTest, Do_Print_Help_Without_Arguments) {
 
     Assert("This is a method of minesweeper application\\..*");
 }
+
+TEST_F(minesweeperAppTest, Can_clic_on_area_without_mine) {
+    vector<string> args = {"10", "10", "5", "9", "0"};
+
+    Act(args);
+
+    Assert("result: 0\n");
+};

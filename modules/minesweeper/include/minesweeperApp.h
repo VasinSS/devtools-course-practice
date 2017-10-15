@@ -18,6 +18,8 @@ class minesweeperApp {
         char x_size;
         char y_size;
         char mine_count;
+        char x_clic;
+        char y_clic;
     } Arguments;
 };
 
