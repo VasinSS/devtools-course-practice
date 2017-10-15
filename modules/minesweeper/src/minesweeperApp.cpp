@@ -45,7 +45,7 @@ char parseChar(const char* arg) {
   char value = static_cast<char>(strtol(arg, &end, 10));
 
   if (end[0]) {
-    throw std::string("Wrong number format!");
+    throw std::string("Wrong input args format!\n");
   }
 
   return value;
