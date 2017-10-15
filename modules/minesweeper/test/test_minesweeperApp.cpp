@@ -52,4 +52,4 @@ TEST_F(minesweeperAppTest, Can_clic_on_area_without_mine) {
     Act(args);
 
     Assert("result: 0\n");
-};
+}
