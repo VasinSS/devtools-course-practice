@@ -1,12 +1,13 @@
 // Copyright 2017 Vasin Stanislav
 
 #include <gtest/gtest.h>
-#include "../include/minesweeperApp.h"
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <functional>
 #include <iterator>
+
+#include "../include/minesweeperApp.h"
 
 using ::testing::internal::RE;
 using std::vector;
