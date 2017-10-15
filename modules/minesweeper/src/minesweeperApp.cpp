@@ -1,15 +1,16 @@
 // Copyright 2017 Vasin Stanislav
 
 #include "../include/minesweeperApp.h"
-#include "../include/minesweeper.h"
+
 #include <stdlib.h>
 #include <stdint.h>
+#include <string>
+
+#include "../include/minesweeper.h"
 
 minesweeperApp::minesweeperApp() : message_("") {}
 
-minesweeperApp::~minesweeperApp() {
-
-}
+minesweeperApp::~minesweeperApp() {}
 
 void minesweeperApp::help(const char* appname, const char* message) {
   message_ = std::string(message) +
