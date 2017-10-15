@@ -4,23 +4,22 @@
 
 #include <string>
 
-class minesweeperApp {
+class MinesweeperApp {
  public:
-  minesweeperApp();
-  ~minesweeperApp();
+  MinesweeperApp();
+  ~MinesweeperApp();
   std::string operator()(int argc, const char** argv);
-
  private:
-  void help(const char* appname, const char* message = "");
-  bool validateNumberofArguments(int argc, const char** argv);
   std::string message_;
   typedef struct {
-        char x_size;
-        char y_size;
-        char mine_count;
-        char x_clic;
-        char y_clic;
+        char x_size_;
+        char y_size_;
+        char mine_count_;
+        char x_clic_;
+        char y_clic_;
     } Arguments;
+  void help(const char* appname, const char* message = "");
+  bool validateNumberofArguments(int argc, const char** argv);
 };
 
 #endif  // MODULES_MINESWEEPER_INCLUDE_MINESWEEPERAPP_H_"

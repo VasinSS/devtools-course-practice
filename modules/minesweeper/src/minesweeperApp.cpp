@@ -9,9 +9,9 @@
 
 #include "../include/minesweeper.h"
 
-minesweeperApp::minesweeperApp() : message_("") {}
+minesweeperApp::MinesweeperApp() : message_("") {}
 
-minesweeperApp::~minesweeperApp() {}
+minesweeperApp::~MinesweeperApp() {}
 
 void minesweeperApp::help(const char* appname, const char* message) {
   message_ = std::string(message) +
@@ -57,18 +57,18 @@ std::string minesweeperApp::operator()(int argc, const char** argv) {
     return message_;
   }
   try {
-    args.x_size  = parseChar(argv[1]);
-    args.y_size = parseChar(argv[2]);
-    args.mine_count = parseChar(argv[3]);
-    args.x_clic = parseChar(argv[4]);
-    args.y_clic = parseChar(argv[5]);
+    args.x_size_  = parseChar(argv[1]);
+    args.y_size_ = parseChar(argv[2]);
+    args.mine_count_ = parseChar(argv[3]);
+    args.x_clic_ = parseChar(argv[4]);
+    args.y_clic_ = parseChar(argv[5]);
   }
   catch(std::string& str) {
     return str;
   }
 
-  minesweeper m(args.x_size, args.y_size, args.mine_count);
-  char result = m.clic_on_cell(args.x_clic, args.y_clic);
+  minesweeper m(args.x_size_, args.y_size_, args.mine_count_);
+  char result = m.clic_on_cell(args.x_clic_, args.y_clic_);
   std::ostringstream stream;
   stream << static_cast<int>(result);
   message_ = "result: " + stream.str() + "\n";

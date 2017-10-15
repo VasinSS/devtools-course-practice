@@ -8,65 +8,65 @@ int absi(int i) {
   return i;
 }
 
-minesweeper::minesweeper(char ix_size, char iy_size, char imine_count) {
-  x_size = ix_size;
-  y_size = iy_size;
-  mine_count = imine_count;
-  remaining_moves = x_size * y_size - mine_count;
+minesweeper::Minesweeper(char ix_size, char iy_size, char imine_count) {
+  x_size_ = ix_size;
+  y_size_ = iy_size;
+  mine_count_ = imine_count;
+  remaining_moves_ = x_size_ * y_size_ - mine_count_;
 
-  x_mine_pos = new char[mine_count];
-  y_mine_pos = new char[mine_count];
+  x_mine_pos_ = new char[mine_count_];
+  y_mine_pos_ = new char[mine_count_];
 
-  for (int i = 0; i < mine_count; i++) {
-    x_mine_pos[i] = i;
+  for (int i = 0; i < mine_count_; i++) {
+    x_mine_pos_[i] = i;
   }
 
-  for (int i = 0; i < mine_count; i++) {
-    y_mine_pos[i] = i;
+  for (int i = 0; i < mine_count_; i++) {
+    y_mine_pos_[i] = i;
   }
 }
 
 minesweeper::minesweeper(const minesweeper &m) {
-  x_size = m.x_size;
-  y_size = m.y_size;
-  mine_count = m.mine_count;
-  remaining_moves = m.remaining_moves;
+  x_size_ = m.x_size_;
+  y_size_ = m.y_size_;
+  mine_count_ = m.mine_count_;
+  remaining_moves_ = m.remaining_moves_;
 
-  x_mine_pos = new char[mine_count];
-  y_mine_pos = new char[mine_count];
+  x_mine_pos_ = new char[mine_count_];
+  y_mine_pos_ = new char[mine_count_];
 
   for (int i = 0; i < mine_count; i++) {
-    x_mine_pos[i] = m.x_mine_pos[i];
-    y_mine_pos[i] = m.y_mine_pos[i];
+    x_mine_pos_[i] = m.x_mine_pos_[i];
+    y_mine_pos_[i] = m.y_mine_pos_[i];
   }
 }
 
 minesweeper::minesweeper() {
-  x_size = 10;
-  y_size = 10;
-  mine_count = 5;
-  remaining_moves = x_size * y_size - mine_count;
+  x_size_ = 10;
+  y_size_ = 10;
+  mine_count_ = 5;
+  remaining_moves_ = x_size_ * y_size_ - mine_count_;
 
-  x_mine_pos = new char[mine_count];
-  y_mine_pos = new char[mine_count];
+  x_mine_pos_ = new char[mine_count_];
+  y_mine_pos_ = new char[mine_count_];
 
-  for (int i = 0; i < mine_count; i++) {
-    x_mine_pos[i] = i;
+  for (int i = 0; i < mine_count_; i++) {
+    x_mine_pos_[i] = i;
   }
-  for (int i=  0; i < mine_count; i++) {
-    y_mine_pos[i] = i;
+  for (int i = 0; i < mine_count_; i++) {
+    y_mine_pos_[i] = i;
   }
 }
 
 minesweeper::~minesweeper() {
-  delete[] x_mine_pos;
-  delete[] y_mine_pos;
+  delete[] x_mine_pos_;
+  delete[] y_mine_pos_;
 }
 
 char minesweeper::cell_is_mine(char ix, char iy) {
   char search_result = 0;
-  for (int i = 0; i < mine_count; i++) {
-    if ( (ix == x_mine_pos[i]) && (iy == y_mine_pos[i]) ) {
+  for (int i = 0; i < mine_count_; i++) {
+    if ( (ix == x_mine_pos_[i]) && (iy == y_mine_pos_[i]) ) {
       search_result = 9;
       break;
     }
@@ -76,10 +76,10 @@ char minesweeper::cell_is_mine(char ix, char iy) {
 
 char minesweeper::get_area_mine_count(char ix, char iy) {
   char area_mine = 0;
-  for (int i = 0; i < mine_count; i++) {
-    if (absi(static_cast<int>(x_mine_pos[i]
+  for (int i = 0; i < mine_count_; i++) {
+    if (absi(static_cast<int>(x_mine_pos_[i]
                  - static_cast<int>(ix)) ) <= 1) {
-      if (absi(static_cast<int>(y_mine_pos[i]
+      if (absi(static_cast<int>(y_mine_pos_[i]
                   - static_cast<int>(iy)) ) <= 1) {
         area_mine = area_mine + 1;
       }
@@ -97,14 +97,14 @@ char minesweeper::clic_on_cell(char ix, char iy) {
 }
 
 char minesweeper::get_x_size() {
-  return x_size;
+  return x_size_;
 }
 
 char minesweeper::get_y_size() {
-  return y_size;
+  return y_size_;
 }
 
 char minesweeper::get_mine_count() {
-  return mine_count;
+  return mine_count_;
 }
 

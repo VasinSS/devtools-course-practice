@@ -13,7 +13,7 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-class minesweeperAppTest : public ::testing::Test {
+class MinesweeperAppTest : public ::testing::Test {
  protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
@@ -38,7 +38,7 @@ class minesweeperAppTest : public ::testing::Test {
     string output_;
 };
 
-TEST_F(minesweeperAppTest, Do_Print_Help_Without_Arguments) {
+TEST_F(MinesweeperAppTest, Do_Print_Help_Without_Arguments) {
     vector<string> args = {};
 
     Act(args);
@@ -46,7 +46,7 @@ TEST_F(minesweeperAppTest, Do_Print_Help_Without_Arguments) {
     Assert("This is a method of minesweeper application\\..*");
 }
 
-TEST_F(minesweeperAppTest, Input_with_miss_some_args) {
+TEST_F(MinesweeperAppTest, Input_with_miss_some_args) {
     vector<string> args = {"10", "10", "5"};
 
     Act(args);
@@ -54,7 +54,7 @@ TEST_F(minesweeperAppTest, Input_with_miss_some_args) {
     Assert("Error: Should be 5 arguments\\..*");
 }
 
-TEST_F(minesweeperAppTest, Input_with_incorrect_args) {
+TEST_F(MinesweeperAppTest, Input_with_incorrect_args) {
     vector<string> args = {"x", "x", "x", "x", "x"};
 
     Act(args);
@@ -62,7 +62,7 @@ TEST_F(minesweeperAppTest, Input_with_incorrect_args) {
     Assert("Wrong input args format!\n");
 }
 
-TEST_F(minesweeperAppTest, Can_clic_on_area_without_mine) {
+TEST_F(MinesweeperAppTest, Can_clic_on_area_without_mine) {
     vector<string> args = {"10", "10", "5", "9", "0"};
 
     Act(args);
@@ -70,7 +70,7 @@ TEST_F(minesweeperAppTest, Can_clic_on_area_without_mine) {
     Assert("result: 0\n");
 }
 
-TEST_F(minesweeperAppTest, Can_clic_on_area_with_mine) {
+TEST_F(MinesweeperAppTest, Can_clic_on_area_with_mine) {
     vector<string> args = {"10", "10", "5", "2", "0"};
 
     Act(args);
@@ -78,7 +78,7 @@ TEST_F(minesweeperAppTest, Can_clic_on_area_with_mine) {
     Assert("result: 1\n");
 }
 
-TEST_F(minesweeperAppTest, Can_clic_on_cell_with_mine) {
+TEST_F(MinesweeperAppTest, Can_clic_on_cell_with_mine) {
     vector<string> args = {"10", "10", "5", "0", "0"};
 
     Act(args);

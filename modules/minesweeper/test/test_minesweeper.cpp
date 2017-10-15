@@ -5,7 +5,7 @@
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_1) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(0, 0);
@@ -15,7 +15,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_1) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_2) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(0, 1);
@@ -25,7 +25,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_2) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_3) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(0, 2);
@@ -35,7 +35,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_3) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_4) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(0, 3);
@@ -45,7 +45,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_4) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_5) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(3, 0);
@@ -55,7 +55,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_5) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_6) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(2, 0);
@@ -65,7 +65,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_6) {
 
 TEST(VS_S_MinesweeperTest, clic_on_cell_test_7) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     char result;
     // Act
     result = m.clic_on_cell(1, 0);
@@ -75,7 +75,7 @@ TEST(VS_S_MinesweeperTest, clic_on_cell_test_7) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_1) {
     // Arrange
-    minesweeper m(10, 10, 7);
+    Minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_x_size();
@@ -85,7 +85,7 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_1) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_2) {
     // Arrange
-    minesweeper m(10, 10, 7);
+    Minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_y_size();
@@ -95,7 +95,7 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_2) {
 
 TEST(VS_S_MinesweeperTest, init_constructor_test_3) {
     // Arrange
-    minesweeper m(10, 10, 7);
+    Minesweeper m(10, 10, 7);
     char result;
     // Act
     result = m.get_mine_count();
@@ -105,8 +105,8 @@ TEST(VS_S_MinesweeperTest, init_constructor_test_3) {
 
 TEST(VS_S_MinesweeperTest, copy_constructor_test) {
     // Arrange
-    minesweeper m1(10, 10, 7);
-    minesweeper m2(m1);
+    Minesweeper m1(10, 10, 7);
+    Minesweeper m2(m1);
     // Act
     // Assert
     EXPECT_TRUE((m1.get_x_size() == m2.get_x_size())
@@ -116,7 +116,7 @@ TEST(VS_S_MinesweeperTest, copy_constructor_test) {
 
 TEST(VS_S_MinesweeperTest, get_x_size_test) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     // Act
 
     // Assert
@@ -125,7 +125,7 @@ TEST(VS_S_MinesweeperTest, get_x_size_test) {
 
 TEST(VS_S_MinesweeperTest, get_y_size_test) {
     // Arrange
-    minesweeper m;
+    Minesweeper m;
     // Act
 
     // Assert
