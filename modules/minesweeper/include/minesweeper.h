@@ -23,4 +23,5 @@ class Minesweeper {
   char get_area_mine_count(char ix, char iy);
 };
 
+
 #endif  // MODULES_MINESWEEPER_INCLUDE_MINESWEEPER_H_"
